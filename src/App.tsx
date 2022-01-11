@@ -12,7 +12,7 @@ const codeChallenge = "_k1W_xDVp_9zLHF90NLkZDbE41R4LhpMRrhRU0rQNhQ";
 const client_id = "9bf2aac0-5427-013a-59a3-0263b45f15b9202740";
 const SCOPE = "openid profile";
 const STATE = "1211212";
-const CALLBACK_URL = "https://930f8245.ciam-oidc.pages.dev";
+const CALLBACK_URL = "ciam-oidc.pages.dev";
 
 function App() {
     const [userData, setUserData] = useState<any>();
@@ -28,7 +28,7 @@ function App() {
                 client_id: client_id,
                 code_verifier: codeVerifier,
                 code: code,
-                redirect_uri: 'https://930f8245.ciam-oidc.pages.dev',
+                redirect_uri: CALLBACK_URL,
               } );
             axios
                 .post("https://himani-gslab-dev.onelogin.com/oidc/2/token", params, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
