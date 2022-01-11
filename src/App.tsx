@@ -28,7 +28,7 @@ function App() {
                 client_id: client_id,
                 code_verifier: codeVerifier,
                 code: code,
-                redirect_uri: CALLBACK_URL,
+                redirect_uri: 'https://930f8245.ciam-oidc.pages.dev',
               } );
             axios
                 .post("https://himani-gslab-dev.onelogin.com/oidc/2/token", params, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
