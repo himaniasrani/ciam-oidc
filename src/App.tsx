@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import qs from "qs";
+import jwt_decode from "jwt-decode";
 // import {
 //     generateCodeChallengeFromVerifier,
 //     generateCodeVerifier,
@@ -16,6 +17,7 @@ const CALLBACK_URL = "https://ciam-oidc.pages.dev";
 
 function App() {
     const [userData, setUserData] = useState<any>();
+    const [userInfo, setUserInfo] = useState<any>();
     const authURL = `https://himani-gslab-dev.onelogin.com/oidc/2/auth?response_type=code&code_challenge=${codeChallenge}&code_challenge_method=S256&client_id=${client_id}&redirect_uri=${CALLBACK_URL}&scope=${SCOPE}&state=${STATE}`;
 
     useEffect(() => {
@@ -34,6 +36,7 @@ function App() {
                 .post("https://himani-gslab-dev.onelogin.com/oidc/2/token", params, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
                 .then((data) => {
                     setUserData(data);
+                    setUserInfo(jwt_decode(data['data']['id_token']));
                 });
         }
         else{
@@ -47,9 +50,9 @@ function App() {
             ) : (
                 <a href={authURL}> Click here</a>
             )}{" "} */}
-            {userData && (
+            {userData && userInfo && (
                 <div>
-                    <h2>Hello User!</h2>
+                    <h2>Hello {userInfo['name']}!</h2>
                     {JSON.stringify(userData)}
                 </div>
             )}
