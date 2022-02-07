@@ -11,7 +11,7 @@ const codeVerifier =
     "hkoO3~j4~18XUA3iJkkJqdI8qfP98.sc8hKL48W6FlxlihlpLB1MbfLjMlLm7fnY9voa8_op8EpWCgdbIwfPWDzuSLuaDDa68SpkZ_7m40eDJeCAKMWqsrFYmSbxNfgi";
 const codeChallenge = "_k1W_xDVp_9zLHF90NLkZDbE41R4LhpMRrhRU0rQNhQ";
 const client_id = "9bf2aac0-5427-013a-59a3-0263b45f15b9202740";
-const SCOPE = "openid profile";
+const SCOPE = "openid profile email";
 const STATE = "1211212";
 const CALLBACK_URL = "https://ciam-oidc.pages.dev";
 
